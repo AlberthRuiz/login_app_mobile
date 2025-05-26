@@ -77,7 +77,6 @@ fun  LoginScreen(modifier: Modifier = Modifier){
             Text("Iniciar Sesion")
         }
 
-
     }
 
 }
