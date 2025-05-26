@@ -21,12 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
-@Preview(
-    showBackground = true
-)
+
 @Composable
-fun  LoginScreen(modifier: Modifier = Modifier){
+fun  LoginScreen(modifier: Modifier = Modifier, navController: NavController){
     var userName by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     Column (modifier = modifier.fillMaxSize().padding(30.dp),
@@ -39,7 +38,7 @@ fun  LoginScreen(modifier: Modifier = Modifier){
             "Usuario",
             modifier = modifier.fillMaxWidth()
         )
-        Spacer(modifier= Modifier.height(15.dp))
+        Spacer(modifier= Modifier.height(5.dp))
         OutlinedTextField(
             value = userName,
             onValueChange =  {
@@ -50,12 +49,12 @@ fun  LoginScreen(modifier: Modifier = Modifier){
             },
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier= Modifier.height(15.dp))
+        Spacer(modifier= Modifier.height(5.dp))
         Text(
             "Password",
             modifier = modifier.fillMaxWidth()
         )
-        Spacer(modifier= Modifier.height(15.dp))
+        Spacer(modifier= Modifier.height(5.dp))
         OutlinedTextField(
             value = password,
             onValueChange = {
@@ -67,10 +66,10 @@ fun  LoginScreen(modifier: Modifier = Modifier){
             visualTransformation = PasswordVisualTransformation(),
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier= Modifier.height(15.dp))
+        Spacer(modifier= Modifier.height(10.dp))
         Button(
             onClick = {
-                Log.d("LOGIN OK!", userName)
+               navController.navigate("principal")
             },
             modifier = Modifier.fillMaxWidth()
         ) {
